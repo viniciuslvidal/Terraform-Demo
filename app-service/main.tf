@@ -5,12 +5,12 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "resource_group_terraform" {
-  name     = "terraform_resource_group"
-  location = "West Europe"
+  name     = "RG-TERRAFORM-CI-CD"
+  location = "East US"
 }
 
 resource "azurerm_app_service_plan" "app_service_plan_terraform" {
-  name                = "terraform-appserviceplan"
+  name                = "terraformvidal-appserviceplan"
   location            = azurerm_resource_group.resource_group_terraform.location
   resource_group_name = azurerm_resource_group.resource_group_terraform.name
 
@@ -21,7 +21,7 @@ resource "azurerm_app_service_plan" "app_service_plan_terraform" {
 }
 
 resource "azurerm_app_service" "app_service_terraform" {
-  name                = "app-service-terraform-2020"
+  name                = "app-labvidalterraform-2020"
   location            = azurerm_resource_group.resource_group_terraform.location
   resource_group_name = azurerm_resource_group.resource_group_terraform.name
   app_service_plan_id = azurerm_app_service_plan.app_service_plan_terraform.id
